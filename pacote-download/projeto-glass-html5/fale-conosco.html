@@ -8,6 +8,13 @@
 </head>
 
 <script language="javascript" src="_javascript/funcoes.js"></script>
+<script>
+    function calc_total() {
+        var qtd = parseInt(document.getElementById('cQtd').value);
+        tot = qtd*1500;
+        document.getElementById('cTot').value = tot;
+    }
+</script>
 <body>
 <div id="interface">
     <header id="cabecalho">
@@ -43,19 +50,19 @@
             </hgroup>
         </header>
     
-    <form>    
+    <form method="post" id="fContato" action="mailto:wilkermizael@yahoo.com" oninput="calc_total();">    
         <fieldset id="usuario"><legend> Identificação do Usuário</legend>
            <p> <label for="cNome"> Nome:</label><input type="text" name="tNome" id="cNome" size="30" maxlength="35" placeholder="Nome Completo"/> </p>
            <p> <label for="cSenha"> Senha:</label><input type="password" name="tSenha" id="cSenha" size="10" maxlength="8" placeholder="8 dígitos"/> </p>
            <p> <label for="cMail"> E-mail:</label><input type="email" name="tMail" id="cMail" size="30" maxlength="35" placeholder="e-mail"/> </p>
            <fieldset id="sexo"><legend> Sexo</legend>
-           <input type="radio" name="tSexo" id="cMasc" checked/><label for="cMasc"> Masculino</label><br>
-           <input type="radio" name="tSexo" id="cFem"/><label for="cFem"> Feminino</label>
-        </fildset>
-        <p> Data de Nascimento:<input type="date" name="tNasc" id="cNasc"/> </p>
+                <input type="radio" name="tSexo" id="cMasc" checked/><label for="cMasc"> Masculino</label><br>
+                <input type="radio" name="tSexo" id="cFem"/><label for="cFem"> Feminino</label>
+            </fildset>
+             <p> Data de Nascimento:<input type="date" name="tNasc" id="cNasc"/> </p>
         </fieldset>
         
-        <fieldset id="usuario"> <legend> Endereço do Usuário</legend>
+        <fieldset id="endereco"> <legend> Endereço do Usuário</legend>
             <p><label for="cRua"> Logradouro:</label><input type="text" name="tRua" id="cRua" size="25" maxlength="80" placeholder="Rua, Av"/> </p>
             <p><label for="cNum"> Número:</label><input type="nu" name="tNum" id="cNum" min="0" max="9999" placeholder="Número da casa/apartamento"/> </p>
             <p><label for="cEst"></label> Estado:
@@ -90,13 +97,13 @@
 
         <fieldset id="pedido"><legend> Quero um Google Glass </legend>
             
-            <p>Gostaria de adquirir um Google Glass quando disponível</p>
-            <p>Cor:</p>
-            <p>Quantidade:</p>
-            <p>Preço Total: R$</p>
+            <p> <input type="checkbox" name="tPed" id="cPed" checked/> <label for="cPed"> Gostaria de adquirir um Google Glass quando disponível</label></p>
+            <p> <label for="cCor"> Cor:</label> <input type="color" name="tCor" id="cCor" value="#00005"/> </p>
+            <p><label for="cQtd"> Quantidade:</label><input type="number" name="tQtd" id="cQtd" min="0" max="5" value="1"/></p>
+            <p><label for="cTot"> Preço Total: R$</label><input type="text" name="tTot" id="cTot" placeholder="O total a pagar é" readonly/> </p>
         </fieldset>
 
-        [BOTÃO ENVIAR]
+        <input type="image" name="tEnviar" src="_imagens/botao-enviar.png"/>
     </form>
     </article>
 
